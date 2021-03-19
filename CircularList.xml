@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CircularList</name>
+    </assembly>
+    <members>
+        <member name="T:CircularList.CircularList`1">
+            <summary>
+            <para>Impliments a FIFO list using a circular data structure.</para>
+            <para>The circular list avoids the performance issues with collection copying inherent in the standard data types. This inplimentation is of fixed size and strictly adheres to a FIFO paradigm. There is no support for mid-collection insertion.</para>
+            <para>In the event that the list size is exceeded, the oldest entry in the list is overwritten with the newest.</para>
+            </summary>
+            <remarks>
+            <para>Internally, the class uses a typed array to store the data. The data is written or read based on the incrementing of two "pointers" that mark the insertion point for new data and the read point for old data. The pointers can be accessed independently to allow for asynchonous read/write operations, or jointly in a single call.</para>
+            <para>If the read pointer catches up to the write pointer, then the object will report no new entries. If the write pointer catches up to the read pointer, then the read pointer is incremented to stay one index ahead of the write pointer. See the <c>Read</c> and <c>Write</c> methods for more information.</para>
+            </remarks>
+            <typeparam name="T">Determines the type of data to be stored.</typeparam>
+        </member>
+        <member name="P:CircularList.CircularList`1.WritePoint">
+            <summary>The next index for data entry.</summary>
+        </member>
+        <member name="P:CircularList.CircularList`1.ReadPoint">
+            <summary>The next index to be read.</summary>
+        </member>
+        <member name="P:CircularList.CircularList`1.DataList">
+            <summary>The data array of type T.</summary>
+        </member>
+        <member name="P:CircularList.CircularList`1.Length">
+            <summary>The length of <c>DataList</c></summary>
+        </member>
+        <member name="M:CircularList.CircularList`1.#ctor(System.Int32)">
+            <summary>
+            The constructor for the CircularList.
+            </summary>
+            <param name="size">The fixed size of the list.</param>
+        </member>
+        <member name="M:CircularList.CircularList`1.Write(`0)">
+            <summary>
+            Writes the next entry in the list.
+            </summary>
+            <param name="data">The data of type T to write.</param>
+        </member>
+        <member name="M:CircularList.CircularList`1.IsNewItems">
+            <summary>
+            Checks if there are new items in the list that have not been read out.
+            </summary>
+            <returns>Returns a boolean value. True for new items, false if there are no new items.</returns>
+        </member>
+        <member name="M:CircularList.CircularList`1.GetNext">
+            <summary>
+            Gets the next value from the list.
+            </summary>
+            <returns>Returns data of type T from the list.</returns>
+        </member>
+        <member name="M:CircularList.CircularList`1.Tick(`0)">
+            <summary>
+            Performs a read and write operation in the same call.
+            </summary>
+            <param name="data">Data of type T to write to the list.</param>
+            <returns>Returns data of type T from the list.</returns>
+            <remarks>Doubtful that this method is useful, but included for the sake of completion. I might extend this into a delayline-like function later.</remarks>
+        </member>
+        <member name="M:CircularList.CircularList`1.Reset">
+            <summary>
+            Resets the list to its default state.
+            </summary>
+        </member>
+    </members>
+</doc>
