@@ -100,5 +100,24 @@
             <returns>Returns data of type T from the list.</returns>
             <remarks>Doubtful that this method is useful, but included for the sake of completion. I might extend this into a delayline-like function later.</remarks>
         </member>
+        <member name="T:CircularEnumerable.CircularReverseQueue`1">
+            <summary>
+            The reverse queue is a strict FILO stack. It is very similar to to the <c>CircularQueue</c> in implimentation, except for the the FILO structure. 
+            </summary>
+            <typeparam name="T">The data type for the structure.</typeparam>
+        </member>
+        <member name="M:CircularEnumerable.CircularReverseQueue`1.#ctor(System.Int32)">
+            <summary>
+            The constructor for the FILO queue.
+            </summary>
+            <param name="size">The size of the data stack.</param>
+        </member>
+        <member name="M:CircularEnumerable.CircularReverseQueue`1.Next">
+            <summary>
+            Returns the most recent data point and removes it from the stack.
+            </summary>
+            <returns>Returns the most recent data point of type T.</returns>
+            <exception cref="T:System.IndexOutOfRangeException">If there are no items in the stack, it throws an exception.</exception>
+        </member>
     </members>
 </doc>

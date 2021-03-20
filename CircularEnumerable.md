@@ -18,6 +18,9 @@
 - [CircularQueue\`1](#T-CircularEnumerable-CircularQueue`1 'CircularEnumerable.CircularQueue`1')
   - [#ctor(size)](#M-CircularEnumerable-CircularQueue`1-#ctor-System-Int32- 'CircularEnumerable.CircularQueue`1.#ctor(System.Int32)')
   - [Tick(data)](#M-CircularEnumerable-CircularQueue`1-Tick-`0- 'CircularEnumerable.CircularQueue`1.Tick(`0)')
+- [CircularReverseQueue\`1](#T-CircularEnumerable-CircularReverseQueue`1 'CircularEnumerable.CircularReverseQueue`1')
+  - [#ctor(size)](#M-CircularEnumerable-CircularReverseQueue`1-#ctor-System-Int32- 'CircularEnumerable.CircularReverseQueue`1.#ctor(System.Int32)')
+  - [Next()](#M-CircularEnumerable-CircularReverseQueue`1-Next 'CircularEnumerable.CircularReverseQueue`1.Next')
 
 <a name='T-CircularEnumerable-CircularEnumerable`1'></a>
 ## CircularEnumerable\`1 `type`
@@ -241,3 +244,54 @@ Returns data of type T from the list.
 ##### Remarks
 
 Doubtful that this method is useful, but included for the sake of completion. I might extend this into a delayline-like function later.
+
+<a name='T-CircularEnumerable-CircularReverseQueue`1'></a>
+## CircularReverseQueue\`1 `type`
+
+##### Namespace
+
+CircularEnumerable
+
+##### Summary
+
+The reverse queue is a strict FILO stack. It is very similar to to the `CircularQueue` in implimentation, except for the the FILO structure.
+
+##### Generic Types
+
+| Name | Description |
+| ---- | ----------- |
+| T | The data type for the structure. |
+
+<a name='M-CircularEnumerable-CircularReverseQueue`1-#ctor-System-Int32-'></a>
+### #ctor(size) `constructor`
+
+##### Summary
+
+The constructor for the FILO queue.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| size | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The size of the data stack. |
+
+<a name='M-CircularEnumerable-CircularReverseQueue`1-Next'></a>
+### Next() `method`
+
+##### Summary
+
+Returns the most recent data point and removes it from the stack.
+
+##### Returns
+
+Returns the most recent data point of type T.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.IndexOutOfRangeException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IndexOutOfRangeException 'System.IndexOutOfRangeException') | If there are no items in the stack, it throws an exception. |
