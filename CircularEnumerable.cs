@@ -20,7 +20,7 @@ namespace CircularEnumerable
         /// <summary>The internal array to store the data.</summary>
         protected T[] DataList { get; set; }
         /// <summary>The current number of items within the list. This returns the actual number of items used between the Head and the Tail.</summary>
-        public int Length
+        public virtual int Length
         {
             get { return Head >= Tail ? Head - Tail : (Head + DataList.Length) - Tail; }
         }
@@ -52,7 +52,7 @@ namespace CircularEnumerable
         /// Adds an item to the end of the stack.
         /// </summary>
         /// <param name="data">The data of type T to add.</param>
-        public void Add(T data)
+        public virtual void Add(T data)
         {
             if (++Head >= DataList.Length) { Head -= DataList.Length; }
             DataList[Head] = data;
@@ -74,7 +74,7 @@ namespace CircularEnumerable
         ///     exampleList.Next()
         /// }
         /// </code></example>
-        public T Next()
+        public virtual T Next()
         {
             if (Head == Tail) { throw new IndexOutOfRangeException("There are no new items in the list."); }
             if(++Tail >= DataList.Length) { Tail -= DataList.Length; }

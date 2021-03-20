@@ -22,9 +22,10 @@ namespace CircularEnumerable
         /// <param name="size">The fixed size of the list.</param>
         public CircularQueue(int size) : base(size)
         {
+            if (size >= Int32.MaxValue - 1 || size < 0 || size.Equals(typeof(int))) { throw new ArgumentException("Stack size is not valid."); }
+            DataList = new T[size + 1];
             Head = 0;
             Tail = 0;
-            DataList = new T[size];
         }
 
         /// <summary>
