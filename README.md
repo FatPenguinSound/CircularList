@@ -23,7 +23,7 @@
   - [Next()](#M-CircularEnumerable-CircularReverseQueue`1-Next 'CircularEnumerable.CircularReverseQueue`1.Next')
 
 <a name='T-CircularEnumerable-CircularEnumerable`1'></a>
-## CircularEnumerable\`1 `type`
+## CircularEnumerable `type`
 
 ##### Namespace
 
@@ -48,7 +48,7 @@ Since the stack is fixed size and circular, if an item is added to the stack tha
 The optimizations represented by this data structure are likely unneccesary in most use-cases. This library was origianlly developed to handle passing UDP data between a listening thread and a processing thread in a realtime application.
 
 <a name='M-CircularEnumerable-CircularEnumerable`1-#ctor-System-Int32-'></a>
-### #ctor(size) `constructor`
+### CircularEnumerable(size) `constructor`
 
 ##### Summary
 
@@ -119,7 +119,7 @@ Adds an item to the end of the stack.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| data | [\`0](#T-`0 '`0') | The data of type T to add. |
+| data | T | The data of type T to add. |
 
 <a name='M-CircularEnumerable-CircularEnumerable`1-Clear'></a>
 ### Clear() `method`
@@ -185,7 +185,7 @@ Resets the location of the Head and Tail without deleting the underlying data. T
 This method has no parameters.
 
 <a name='T-CircularEnumerable-CircularQueue`1'></a>
-## CircularQueue\`1 `type`
+## CircularQueue `type`
 
 ##### Namespace
 
@@ -212,7 +212,7 @@ Internally, the class uses a typed array to store the data. The data is written 
 If the read pointer catches up to the write pointer, then the object will report no new entries. If the write pointer catches up to the read pointer, then the read pointer is incremented to stay one index ahead of the write pointer. See the `Read` and `Write` methods for more information.
 
 <a name='M-CircularEnumerable-CircularQueue`1-#ctor-System-Int32-'></a>
-### #ctor(size) `constructor`
+### CircularQueue(size) `constructor`
 
 ##### Summary
 
@@ -239,14 +239,14 @@ Returns data of type T from the list.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| data | [\`0](#T-`0 '`0') | Data of type T to write to the list. |
+| data | T | Data of type T to write to the list. |
 
 ##### Remarks
 
 Doubtful that this method is useful, but included for the sake of completion. I might extend this into a delayline-like function later.
 
 <a name='T-CircularEnumerable-CircularReverseQueue`1'></a>
-## CircularReverseQueue\`1 `type`
+## CircularReverseQueue `type`
 
 ##### Namespace
 
@@ -263,7 +263,7 @@ The reverse queue is a strict FILO stack. It is very similar to to the `Circular
 | T | The data type for the structure. |
 
 <a name='M-CircularEnumerable-CircularReverseQueue`1-#ctor-System-Int32-'></a>
-### #ctor(size) `constructor`
+### CircularReverseQueue(size) `constructor`
 
 ##### Summary
 
