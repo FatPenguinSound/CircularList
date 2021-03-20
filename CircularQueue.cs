@@ -6,7 +6,7 @@ namespace CircularEnumerable
 {
     /// <summary>
     /// <para>Impliments a FIFO list using a circular data structure.</para>
-    /// <para>The circular list avoids the performance issues with collection copying inherent in the standard data types. This inplimentation is of fixed size and strictly adheres to a FIFO paradigm. There is no support for mid-collection insertion.</para>
+    /// <para>The circular queue avoids the performance issues with collection copying inherent in the standard data types. This implimentation is of fixed size and strictly adheres to a FIFO paradigm. There is no support for mid-collection insertion.</para>
     /// <para>In the event that the list size is exceeded, the oldest entry in the list is overwritten with the newest.</para>
     /// </summary>
     /// <remarks>
@@ -14,70 +14,17 @@ namespace CircularEnumerable
     /// <para>If the read pointer catches up to the write pointer, then the object will report no new entries. If the write pointer catches up to the read pointer, then the read pointer is incremented to stay one index ahead of the write pointer. See the <c>Read</c> and <c>Write</c> methods for more information.</para>
     /// </remarks>
     /// <typeparam name="T">Determines the type of data to be stored.</typeparam>
-    class CircularQueue<T>
+    class CircularQueue<T> : CircularEnumerable<T>
     {
-        /// <summary>The next index for data entry.</summary>
-        private int WritePoint { get; set; }
-        /// <summary>The next index to be read.</summary>
-        private int ReadPoint { get; set; }
-        /// <summary>The data array of type T.</summary>
-        private T[] DataList { get; set; }
-        /// <summary>The length of <c>DataList</c></summary>
-        public int Length
-        {
-            get { return DataList.Length; }
-        }
-
         /// <summary>
         /// The constructor for the CircularList.
         /// </summary>
         /// <param name="size">The fixed size of the list.</param>
-        public CircularQueue(int size)
+        public CircularQueue(int size) : base(size)
         {
+            Head = 0;
+            Tail = 0;
             DataList = new T[size];
-            WritePoint = 0;
-            ReadPoint = 0;
-        }
-
-        /// <summary>
-        /// Writes the next entry in the list.
-        /// </summary>
-        /// <param name="data">The data of type T to write.</param>
-        public void Write(T data)
-        {
-            WritePoint = ++WritePoint >= DataList.Length ? WritePoint - DataList.Length : WritePoint;
-            if (WritePoint == ReadPoint) { ++ReadPoint; }
-            DataList[WritePoint] = data;
-        }
-
-        /// <summary>
-        /// Checks if there are new items in the list that have not been read out.
-        /// </summary>
-        /// <remarks>
-        /// <para>This class is mainly intended to enable the collection and processing of information on separate threads. This method allows for the processing loop to run independently of the write loop without overruning the current size of new entries</para>
-        /// <para>An example:</para>
-        /// </remarks>
-        /// <returns>Returns a boolean value. True for new items, false if there are no new items.</returns>
-        public bool IsNewItems()
-        {
-            return ReadPoint != WritePoint;
-        }
-
-        /// <summary>
-        /// Gets the next value from the list.
-        /// </summary>
-        /// <returns>Returns data of type T from the list.</returns>
-        public T Next()
-        {
-            if (ReadPoint == WritePoint)
-            {
-                IndexOutOfRangeException e = new IndexOutOfRangeException("End of list reached!");
-                throw e;
-            }
-            else {               
-                ReadPoint = ++ReadPoint >= DataList.Length ? ReadPoint - DataList.Length : ReadPoint;
-                return DataList[ReadPoint];
-            }
         }
 
         /// <summary>
@@ -88,18 +35,8 @@ namespace CircularEnumerable
         /// <remarks>Doubtful that this method is useful, but included for the sake of completion. I might extend this into a delayline-like function later.</remarks>
         public T Tick(T data)
         {
-            Write(data);
-            return GetNext();
-        }
-
-        /// <summary>
-        /// Resets the list to its default state.
-        /// </summary>
-        public void Reset()
-        {
-            Array.Clear(DataList, 0, DataList.Length); // Probably unneccesary.
-            ReadPoint = 0;
-            WritePoint = 0;
+            Add(data);
+            return Next();
         }
     }
 }
