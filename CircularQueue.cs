@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CircularList
+namespace CircularEnumerable
 {
     /// <summary>
     /// <para>Impliments a FIFO list using a circular data structure.</para>
@@ -14,7 +14,7 @@ namespace CircularList
     /// <para>If the read pointer catches up to the write pointer, then the object will report no new entries. If the write pointer catches up to the read pointer, then the read pointer is incremented to stay one index ahead of the write pointer. See the <c>Read</c> and <c>Write</c> methods for more information.</para>
     /// </remarks>
     /// <typeparam name="T">Determines the type of data to be stored.</typeparam>
-    class CircularList<T>
+    class CircularQueue<T>
     {
         /// <summary>The next index for data entry.</summary>
         private int WritePoint { get; set; }
@@ -32,7 +32,7 @@ namespace CircularList
         /// The constructor for the CircularList.
         /// </summary>
         /// <param name="size">The fixed size of the list.</param>
-        public CircularList(int size)
+        public CircularQueue(int size)
         {
             DataList = new T[size];
             WritePoint = 0;
@@ -53,6 +53,10 @@ namespace CircularList
         /// <summary>
         /// Checks if there are new items in the list that have not been read out.
         /// </summary>
+        /// <remarks>
+        /// <para>This class is mainly intended to enable the collection and processing of information on separate threads. This method allows for the processing loop to run independently of the write loop without overruning the current size of new entries</para>
+        /// <para>An example:</para>
+        /// </remarks>
         /// <returns>Returns a boolean value. True for new items, false if there are no new items.</returns>
         public bool IsNewItems()
         {
@@ -63,7 +67,7 @@ namespace CircularList
         /// Gets the next value from the list.
         /// </summary>
         /// <returns>Returns data of type T from the list.</returns>
-        public T GetNext()
+        public T Next()
         {
             if (ReadPoint == WritePoint)
             {
