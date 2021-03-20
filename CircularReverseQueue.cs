@@ -4,11 +4,14 @@ using System.Text;
 
 namespace CircularEnumerable
 {
-
+    /// <summary>
+    /// The reverse queue is a strict FILO stack. It is very similar to to the <c>CircularQueue</c> in implimentation, except for the the FILO structure. 
+    /// </summary>
+    /// <typeparam name="T">The data type for the structure.</typeparam>
     class CircularReverseQueue<T> : CircularEnumerable<T>
     {
         /// <summary>
-        /// The reverse queue is a strict FILO stack. It is very similar to to the <c>CircularQueue</c> in implimentation, except for the the FILO structure. 
+        /// The constructor for the FILO queue.
         /// </summary>
         /// <param name="size">The size of the data stack.</param>
         CircularReverseQueue(int size) : base(size)
