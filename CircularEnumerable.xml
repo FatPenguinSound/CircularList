@@ -74,6 +74,18 @@
             </summary>
             <see cref="M:CircularEnumerable.CircularEnumerable`1.Clear"/>
         </member>
+        <member name="T:CircularEnumerable.CircularList`1">
+            <summary>
+            This class mirrors the <c></c>
+            </summary>
+            <typeparam name="T">The data type for the structure.</typeparam>
+        </member>
+        <member name="M:CircularEnumerable.CircularList`1.#ctor(System.Int32)">
+            <summary>
+            Constructor for the Circular List class.
+            </summary>
+            <param name="size">The size of the stack.</param>
+        </member>
         <member name="T:CircularEnumerable.CircularQueue`1">
             <summary>
             <para>Impliments a FIFO list using a circular data structure.</para>

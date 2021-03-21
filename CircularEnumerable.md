@@ -15,6 +15,8 @@
   - [Clear()](#M-CircularEnumerable-CircularEnumerable`1-Clear 'CircularEnumerable.CircularEnumerable`1.Clear')
   - [Next()](#M-CircularEnumerable-CircularEnumerable`1-Next 'CircularEnumerable.CircularEnumerable`1.Next')
   - [Reset()](#M-CircularEnumerable-CircularEnumerable`1-Reset 'CircularEnumerable.CircularEnumerable`1.Reset')
+- [CircularList\`1](#T-CircularEnumerable-CircularList`1 'CircularEnumerable.CircularList`1')
+  - [#ctor(size)](#M-CircularEnumerable-CircularList`1-#ctor-System-Int32- 'CircularEnumerable.CircularList`1.#ctor(System.Int32)')
 - [CircularQueue\`1](#T-CircularEnumerable-CircularQueue`1 'CircularEnumerable.CircularQueue`1')
   - [#ctor(size)](#M-CircularEnumerable-CircularQueue`1-#ctor-System-Int32- 'CircularEnumerable.CircularQueue`1.#ctor(System.Int32)')
   - [Tick(data)](#M-CircularEnumerable-CircularQueue`1-Tick-`0- 'CircularEnumerable.CircularQueue`1.Tick(`0)')
@@ -183,6 +185,36 @@ Resets the location of the Head and Tail without deleting the underlying data. T
 ##### Parameters
 
 This method has no parameters.
+
+<a name='T-CircularEnumerable-CircularList`1'></a>
+## CircularList\`1 `type`
+
+##### Namespace
+
+CircularEnumerable
+
+##### Summary
+
+This class mirrors the ``
+
+##### Generic Types
+
+| Name | Description |
+| ---- | ----------- |
+| T | The data type for the structure. |
+
+<a name='M-CircularEnumerable-CircularList`1-#ctor-System-Int32-'></a>
+### #ctor(size) `constructor`
+
+##### Summary
+
+Constructor for the Circular List class.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| size | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The size of the stack. |
 
 <a name='T-CircularEnumerable-CircularQueue`1'></a>
 ## CircularQueue\`1 `type`

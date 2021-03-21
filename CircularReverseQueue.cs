@@ -14,7 +14,7 @@ namespace CircularEnumerable
         /// The constructor for the FILO queue.
         /// </summary>
         /// <param name="size">The size of the data stack.</param>
-        CircularReverseQueue(int size) : base(size)
+        public CircularReverseQueue(int size) : base(size)
         {
             if (size >= Int32.MaxValue - 1 || size < 0 || size.Equals(typeof(int))) { throw new ArgumentException("Stack size is not valid."); }
             DataList = new T[size + 1];

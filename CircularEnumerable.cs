@@ -27,7 +27,7 @@ namespace CircularEnumerable
         /// <summary>The total capacity of the stack.</summary>
         public int Capacity
         {
-            get { return DataList.Length; }
+            get { return DataList.Length - 1; }
         }
         /// <summary></summary>
         public bool IsNewItems
