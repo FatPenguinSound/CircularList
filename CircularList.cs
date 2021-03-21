@@ -28,11 +28,13 @@ namespace CircularEnumerable
             if (Head > Tail)
             {
                 int insertionPoint = Tail + index > DataList.Length ? Tail + index - DataList.Length : Tail + index;
+                insertionPoint++;
                 int numToMove = Length - index;
 
                 for (var i = numToMove; i > -1; i--)
                 {
-                    DataList[i + 1 > Capacity ? i - Capacity : i + 1] = DataList[i];
+                    int p = insertionPoint + i;
+                    DataList[p + 1 > Capacity ? p + 1 - Capacity : p + 1] = DataList[p];
                 }
             }
             else if (Tail < Head)
