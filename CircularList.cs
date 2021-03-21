@@ -37,7 +37,7 @@ namespace CircularEnumerable
                     DataList[p + 1 > Capacity ? p + 1 - Capacity : p + 1] = DataList[p];
                 }
             }
-            else if (Tail < Head)
+            else if (Head > Tail)
             {
 
             }

@@ -56,7 +56,13 @@ namespace CircularEnumerable
         {
             if (++Head >= DataList.Length) { Head -= DataList.Length; }
             DataList[Head] = data;
-            if (Head == Tail) { ++Tail; }
+            if (Head == Tail) 
+            { 
+                if (++Tail >= DataList.Length) 
+                { 
+                    Tail -= DataList.Length; 
+                } 
+            }
         }
 
         /// <summary>
