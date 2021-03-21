@@ -5,9 +5,10 @@ using System.Text;
 namespace CircularEnumerable
 {
     /// <summary>
-    /// This class mirrors the <c></c>
+    /// This class is not fully implemented yet. Do not use.
     /// </summary>
     /// <typeparam name="T">The data type for the structure.</typeparam>
+    /// <remarks>I need to rewrite the insertion method. It'll probably be easier to just copy to a new array and reset the pointers. At the moment, I don't need this class to work and I need to move on the to project that the original FILO stack was for.</remarks>
     class CircularList<T> : CircularEnumerable<T>
     {
         /// <summary>
@@ -19,6 +20,11 @@ namespace CircularEnumerable
             throw new NotImplementedException("This class is not yet implimented");
         }
 
+        /// <summary>
+        /// Inserts a data point into the stack. This class does not work as intended yet.
+        /// </summary>
+        /// <param name="index">The point in the stack in which to insert the data.</param>
+        /// <param name="data">The data of type T to insert into the stack.</param>
         public void Insert(int index, T data)
         {
             if (index > Length) { throw new IndexOutOfRangeException(); }
@@ -65,6 +71,9 @@ namespace CircularEnumerable
             }
         }
 
+        /// <summary>
+        /// A debugging method that prints the array to the console.
+        /// </summary>
         private void PrintDebug()
         {
             var str = "";
