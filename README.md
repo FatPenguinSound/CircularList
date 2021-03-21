@@ -15,6 +15,10 @@
   - [Clear()](#M-CircularEnumerable-CircularEnumerable`1-Clear 'CircularEnumerable.CircularEnumerable`1.Clear')
   - [Next()](#M-CircularEnumerable-CircularEnumerable`1-Next 'CircularEnumerable.CircularEnumerable`1.Next')
   - [Reset()](#M-CircularEnumerable-CircularEnumerable`1-Reset 'CircularEnumerable.CircularEnumerable`1.Reset')
+- [CircularList\`1](#T-CircularEnumerable-CircularList`1 'CircularEnumerable.CircularList`1')
+  - [#ctor(size)](#M-CircularEnumerable-CircularList`1-#ctor-System-Int32- 'CircularEnumerable.CircularList`1.#ctor(System.Int32)')
+  - [Insert(index,data)](#M-CircularEnumerable-CircularList`1-Insert-System-Int32,`0- 'CircularEnumerable.CircularList`1.Insert(System.Int32,`0)')
+  - [PrintDebug()](#M-CircularEnumerable-CircularList`1-PrintDebug 'CircularEnumerable.CircularList`1.PrintDebug')
 - [CircularQueue\`1](#T-CircularEnumerable-CircularQueue`1 'CircularEnumerable.CircularQueue`1')
   - [#ctor(size)](#M-CircularEnumerable-CircularQueue`1-#ctor-System-Int32- 'CircularEnumerable.CircularQueue`1.#ctor(System.Int32)')
   - [Tick(data)](#M-CircularEnumerable-CircularQueue`1-Tick-`0- 'CircularEnumerable.CircularQueue`1.Tick(`0)')
@@ -23,7 +27,7 @@
   - [Next()](#M-CircularEnumerable-CircularReverseQueue`1-Next 'CircularEnumerable.CircularReverseQueue`1.Next')
 
 <a name='T-CircularEnumerable-CircularEnumerable`1'></a>
-## CircularEnumerable `type`
+## CircularEnumerable\`1 `type`
 
 ##### Namespace
 
@@ -48,7 +52,7 @@ Since the stack is fixed size and circular, if an item is added to the stack tha
 The optimizations represented by this data structure are likely unneccesary in most use-cases. This library was origianlly developed to handle passing UDP data between a listening thread and a processing thread in a realtime application.
 
 <a name='M-CircularEnumerable-CircularEnumerable`1-#ctor-System-Int32-'></a>
-### CircularEnumerable(size) `constructor`
+### #ctor(size) `constructor`
 
 ##### Summary
 
@@ -119,7 +123,7 @@ Adds an item to the end of the stack.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| data | T | The data of type T to add. |
+| data | [\`0](#T-`0 '`0') | The data of type T to add. |
 
 <a name='M-CircularEnumerable-CircularEnumerable`1-Clear'></a>
 ### Clear() `method`
@@ -184,8 +188,67 @@ Resets the location of the Head and Tail without deleting the underlying data. T
 
 This method has no parameters.
 
+<a name='T-CircularEnumerable-CircularList`1'></a>
+## CircularList\`1 `type`
+
+##### Namespace
+
+CircularEnumerable
+
+##### Summary
+
+This class is not fully implemented yet. Do not use.
+
+##### Generic Types
+
+| Name | Description |
+| ---- | ----------- |
+| T | The data type for the structure. |
+
+##### Remarks
+
+I need to rewrite the insertion method. It'll probably be easier to just copy to a new array and reset the pointers. At the moment, I don't need this class to work and I need to move on the to project that the original FILO stack was for.
+
+<a name='M-CircularEnumerable-CircularList`1-#ctor-System-Int32-'></a>
+### #ctor(size) `constructor`
+
+##### Summary
+
+Constructor for the Circular List class.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| size | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The size of the stack. |
+
+<a name='M-CircularEnumerable-CircularList`1-Insert-System-Int32,`0-'></a>
+### Insert(index,data) `method`
+
+##### Summary
+
+Inserts a data point into the stack. This class does not work as intended yet.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| index | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The point in the stack in which to insert the data. |
+| data | [\`0](#T-`0 '`0') | The data of type T to insert into the stack. |
+
+<a name='M-CircularEnumerable-CircularList`1-PrintDebug'></a>
+### PrintDebug() `method`
+
+##### Summary
+
+A debugging method that prints the array to the console.
+
+##### Parameters
+
+This method has no parameters.
+
 <a name='T-CircularEnumerable-CircularQueue`1'></a>
-## CircularQueue `type`
+## CircularQueue\`1 `type`
 
 ##### Namespace
 
@@ -212,7 +275,7 @@ Internally, the class uses a typed array to store the data. The data is written 
 If the read pointer catches up to the write pointer, then the object will report no new entries. If the write pointer catches up to the read pointer, then the read pointer is incremented to stay one index ahead of the write pointer. See the `Read` and `Write` methods for more information.
 
 <a name='M-CircularEnumerable-CircularQueue`1-#ctor-System-Int32-'></a>
-### CircularQueue(size) `constructor`
+### #ctor(size) `constructor`
 
 ##### Summary
 
@@ -239,14 +302,14 @@ Returns data of type T from the list.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| data | T | Data of type T to write to the list. |
+| data | [\`0](#T-`0 '`0') | Data of type T to write to the list. |
 
 ##### Remarks
 
 Doubtful that this method is useful, but included for the sake of completion. I might extend this into a delayline-like function later.
 
 <a name='T-CircularEnumerable-CircularReverseQueue`1'></a>
-## CircularReverseQueue `type`
+## CircularReverseQueue\`1 `type`
 
 ##### Namespace
 
@@ -263,7 +326,7 @@ The reverse queue is a strict FILO stack. It is very similar to to the `Circular
 | T | The data type for the structure. |
 
 <a name='M-CircularEnumerable-CircularReverseQueue`1-#ctor-System-Int32-'></a>
-### CircularReverseQueue(size) `constructor`
+### #ctor(size) `constructor`
 
 ##### Summary
 

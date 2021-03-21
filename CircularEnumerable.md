@@ -17,6 +17,8 @@
   - [Reset()](#M-CircularEnumerable-CircularEnumerable`1-Reset 'CircularEnumerable.CircularEnumerable`1.Reset')
 - [CircularList\`1](#T-CircularEnumerable-CircularList`1 'CircularEnumerable.CircularList`1')
   - [#ctor(size)](#M-CircularEnumerable-CircularList`1-#ctor-System-Int32- 'CircularEnumerable.CircularList`1.#ctor(System.Int32)')
+  - [Insert(index,data)](#M-CircularEnumerable-CircularList`1-Insert-System-Int32,`0- 'CircularEnumerable.CircularList`1.Insert(System.Int32,`0)')
+  - [PrintDebug()](#M-CircularEnumerable-CircularList`1-PrintDebug 'CircularEnumerable.CircularList`1.PrintDebug')
 - [CircularQueue\`1](#T-CircularEnumerable-CircularQueue`1 'CircularEnumerable.CircularQueue`1')
   - [#ctor(size)](#M-CircularEnumerable-CircularQueue`1-#ctor-System-Int32- 'CircularEnumerable.CircularQueue`1.#ctor(System.Int32)')
   - [Tick(data)](#M-CircularEnumerable-CircularQueue`1-Tick-`0- 'CircularEnumerable.CircularQueue`1.Tick(`0)')
@@ -195,13 +197,17 @@ CircularEnumerable
 
 ##### Summary
 
-This class mirrors the ``
+This class is not fully implemented yet. Do not use.
 
 ##### Generic Types
 
 | Name | Description |
 | ---- | ----------- |
 | T | The data type for the structure. |
+
+##### Remarks
+
+I need to rewrite the insertion method. It'll probably be easier to just copy to a new array and reset the pointers. At the moment, I don't need this class to work and I need to move on the to project that the original FILO stack was for.
 
 <a name='M-CircularEnumerable-CircularList`1-#ctor-System-Int32-'></a>
 ### #ctor(size) `constructor`
@@ -215,6 +221,31 @@ Constructor for the Circular List class.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | size | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The size of the stack. |
+
+<a name='M-CircularEnumerable-CircularList`1-Insert-System-Int32,`0-'></a>
+### Insert(index,data) `method`
+
+##### Summary
+
+Inserts a data point into the stack. This class does not work as intended yet.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| index | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The point in the stack in which to insert the data. |
+| data | [\`0](#T-`0 '`0') | The data of type T to insert into the stack. |
+
+<a name='M-CircularEnumerable-CircularList`1-PrintDebug'></a>
+### PrintDebug() `method`
+
+##### Summary
+
+A debugging method that prints the array to the console.
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='T-CircularEnumerable-CircularQueue`1'></a>
 ## CircularQueue\`1 `type`

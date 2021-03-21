@@ -76,15 +76,28 @@
         </member>
         <member name="T:CircularEnumerable.CircularList`1">
             <summary>
-            This class mirrors the <c></c>
+            This class is not fully implemented yet. Do not use.
             </summary>
             <typeparam name="T">The data type for the structure.</typeparam>
+            <remarks>I need to rewrite the insertion method. It'll probably be easier to just copy to a new array and reset the pointers. At the moment, I don't need this class to work and I need to move on the to project that the original FILO stack was for.</remarks>
         </member>
         <member name="M:CircularEnumerable.CircularList`1.#ctor(System.Int32)">
             <summary>
             Constructor for the Circular List class.
             </summary>
             <param name="size">The size of the stack.</param>
+        </member>
+        <member name="M:CircularEnumerable.CircularList`1.Insert(System.Int32,`0)">
+            <summary>
+            Inserts a data point into the stack. This class does not work as intended yet.
+            </summary>
+            <param name="index">The point in the stack in which to insert the data.</param>
+            <param name="data">The data of type T to insert into the stack.</param>
+        </member>
+        <member name="M:CircularEnumerable.CircularList`1.PrintDebug">
+            <summary>
+            A debugging method that prints the array to the console.
+            </summary>
         </member>
         <member name="T:CircularEnumerable.CircularQueue`1">
             <summary>
