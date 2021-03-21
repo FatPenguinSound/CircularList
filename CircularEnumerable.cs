@@ -32,7 +32,7 @@ namespace CircularEnumerable
         /// <summary></summary>
         public bool IsNewItems
         {
-            get { return Head == Tail; }
+            get { return Head != Tail; }
         }
 
         /// <summary>
