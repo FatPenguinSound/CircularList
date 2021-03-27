@@ -14,7 +14,7 @@ namespace CircularEnumerable
     /// <para>If the read pointer catches up to the write pointer, then the object will report no new entries. If the write pointer catches up to the read pointer, then the read pointer is incremented to stay one index ahead of the write pointer. See the <c>Read</c> and <c>Write</c> methods for more information.</para>
     /// </remarks>
     /// <typeparam name="T">Determines the type of data to be stored.</typeparam>
-    class CircularQueue<T> : CircularEnumerable<T>
+    public class CircularQueue<T> : CircularEnumerable<T>
     {
         /// <summary>
         /// The constructor for the CircularList.

@@ -9,7 +9,7 @@ namespace CircularEnumerable
     /// </summary>
     /// <typeparam name="T">The data type for the structure.</typeparam>
     /// <remarks>I need to rewrite the insertion method. It'll probably be easier to just copy to a new array and reset the pointers. At the moment, I don't need this class to work and I need to move on the to project that the original FILO stack was for.</remarks>
-    class CircularList<T> : CircularEnumerable<T>
+    public class CircularList<T> : CircularEnumerable<T>
     {
         /// <summary>
         /// Constructor for the Circular List class.
